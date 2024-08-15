@@ -5,6 +5,7 @@ const port = process.env.PORT || 5000;
 
 // middleware
 app.use(cors());
+app.use(express.json());
 
 const user = [
     { id: 1, name: 'Jamal', email: 'jamal@gmail.com' },
@@ -13,14 +14,12 @@ const user = [
   ]
   
 app.get('/users', (req,res)=>{
-    console.log(user)
     res.send(user)
 })
 
 app.post('/users',(req,res)=>{
     const newUser = req.body;
     console.log(newUser)
-    res.send(newUser)
 })
 
 app.get('/', (req,res)=>{
